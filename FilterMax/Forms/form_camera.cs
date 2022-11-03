@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -90,14 +91,22 @@ namespace FilterMax.Forms
                 case (CameraMode)1:
                     {
                         Image<Bgr, byte> grayImage = new Image<Bgr, byte>(image);
-                        Rectangle[] rectangles = cascadeClassifier.DetectMultiScale(grayImage, 1.4, 1);
+                        Rectangle[] rectangles = cascadeClassifier.DetectMultiScale(grayImage, 1.2, 1);
                         foreach (Rectangle rectangle in rectangles)
                         {
+                            Font font = new Font("Poppins", 25);
+
+                            StringFormat format = new StringFormat();
+                            format.FormatFlags = StringFormatFlags.DirectionRightToLeft;
+
                             using (Graphics graphics = Graphics.FromImage(image))
                             {
                                 using (Pen pen = new Pen(Color.Red, 1))
                                 {
+                                    SolidBrush brush = new SolidBrush(Color.Red);
                                     graphics.DrawRectangle(pen, rectangle);
+                                    graphics.DrawString("Face", font, brush, rectangle.X, rectangle.Y - 10, format);
+
                                 }
                             }
                         }
@@ -168,7 +177,11 @@ namespace FilterMax.Forms
 
         private void rb_objects_CheckedChanged(object sender, EventArgs e)
         {
-            detector = new MotionDetector(new SimpleBackgroundModelingDetector(), new BlobCountingObjectsProcessing());
+            BlobCountingObjectsProcessing processing = new BlobCountingObjectsProcessing();
+            processing.HighlightMotionRegions = true;
+            processing.MinObjectsWidth = 75;
+            processing.MinObjectsHeight = 75;
+            detector = new MotionDetector(new SimpleBackgroundModelingDetector(), processing);
             cameraMode = (CameraMode)3;
 
         }
