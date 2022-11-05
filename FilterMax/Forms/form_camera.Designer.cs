@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cb_camera = new System.Windows.Forms.ComboBox();
             this.pb_image = new System.Windows.Forms.PictureBox();
             this.rb_movement = new System.Windows.Forms.RadioButton();
@@ -35,9 +36,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbl_objects = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.rb_objects = new System.Windows.Forms.RadioButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pb_image)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,17 +132,17 @@
             this.label3.Text = "0";
             this.label3.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label4
+            // lbl_objects
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(852, 580);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(18, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "0";
+            this.lbl_objects.AutoSize = true;
+            this.lbl_objects.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_objects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_objects.ForeColor = System.Drawing.Color.White;
+            this.lbl_objects.Location = new System.Drawing.Point(852, 580);
+            this.lbl_objects.Name = "lbl_objects";
+            this.lbl_objects.Size = new System.Drawing.Size(18, 20);
+            this.lbl_objects.TabIndex = 6;
+            this.lbl_objects.Text = "0";
             // 
             // label5
             // 
@@ -169,6 +171,12 @@
             this.rb_objects.UseVisualStyleBackColor = false;
             this.rb_objects.CheckedChanged += new System.EventHandler(this.rb_objects_CheckedChanged);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 10;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // form_camera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,7 +184,7 @@
             this.BackgroundImage = global::FilterMax.Properties.Resources.layout6;
             this.ClientSize = new System.Drawing.Size(1350, 715);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lbl_objects);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -205,8 +213,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_objects;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RadioButton rb_objects;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -27,12 +27,10 @@ namespace FilterMax.Forms
         private bool camera_available = false;
         private FilterInfoCollection devices;
         private VideoCaptureDevice videoCaptureDevice;
-
+        BlobCountingObjectsProcessing processing = new BlobCountingObjectsProcessing();
         private CameraMode cameraMode;
         MotionDetector detector;
         float level;
-
-        
 
         static readonly CascadeClassifier cascadeClassifier = new CascadeClassifier("haarcascade_frontalface_alt_tree.xml");
 
@@ -44,7 +42,6 @@ namespace FilterMax.Forms
 
         public void LoadDevices()
         {
-
             //detector = new MotionDetector(new TwoFramesDifferenceDetector(), new MotionBorderHighlighting());
 
             devices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -116,17 +113,8 @@ namespace FilterMax.Forms
                     } 
                     case (CameraMode)2:
                     {
-                        Bitmap box = image;
-                        if (detector.ProcessFrame(box)> 1)
-                        {
-                            image = box;
-                            pb_image.Image = image;
-                        }
-                        else
-                        {
-                            pb_image.Image = image;
-                        }
-
+                        detector.ProcessFrame(image);
+                        pb_image.Image = image;
                         break;
                     } 
                     case (CameraMode)3:
@@ -136,7 +124,6 @@ namespace FilterMax.Forms
                         if (level > 0.01)
                         {
                             Console.WriteLine(level.ToString());
-
                             image = box;
                             pb_image.Image = image;
                         }
@@ -177,13 +164,17 @@ namespace FilterMax.Forms
 
         private void rb_objects_CheckedChanged(object sender, EventArgs e)
         {
-            BlobCountingObjectsProcessing processing = new BlobCountingObjectsProcessing();
+            
             processing.HighlightMotionRegions = true;
             processing.MinObjectsWidth = 75;
             processing.MinObjectsHeight = 75;
             detector = new MotionDetector(new SimpleBackgroundModelingDetector(), processing);
             cameraMode = (CameraMode)3;
+        }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbl_objects.Text = processing.ObjectsCount.ToString();
         }
     }
 }

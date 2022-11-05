@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pb_video = new System.Windows.Forms.PictureBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btn_play = new System.Windows.Forms.PictureBox();
+            this.btn_stop = new System.Windows.Forms.PictureBox();
+            this.btn_pause = new System.Windows.Forms.PictureBox();
             this.btn_reset = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_load = new System.Windows.Forms.Button();
@@ -48,21 +48,22 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btn_negative = new System.Windows.Forms.Button();
             this.btn_grayScale = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_video)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_play)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_stop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_pause)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pb_video
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(348, 37);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(958, 425);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pb_video.BackColor = System.Drawing.Color.Transparent;
+            this.pb_video.Location = new System.Drawing.Point(348, 37);
+            this.pb_video.Name = "pb_video";
+            this.pb_video.Size = new System.Drawing.Size(958, 425);
+            this.pb_video.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_video.TabIndex = 0;
+            this.pb_video.TabStop = false;
             // 
             // splitter1
             // 
@@ -80,39 +81,43 @@
             this.trackBar1.Size = new System.Drawing.Size(958, 45);
             this.trackBar1.TabIndex = 2;
             this.trackBar1.TickFrequency = 0;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
-            // pictureBox2
+            // btn_play
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::FilterMax.Properties.Resources.ic_play1;
-            this.pictureBox2.Location = new System.Drawing.Point(836, 519);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(39, 35);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
+            this.btn_play.BackColor = System.Drawing.Color.Transparent;
+            this.btn_play.Image = global::FilterMax.Properties.Resources.ic_play1;
+            this.btn_play.Location = new System.Drawing.Point(836, 519);
+            this.btn_play.Name = "btn_play";
+            this.btn_play.Size = new System.Drawing.Size(39, 35);
+            this.btn_play.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_play.TabIndex = 3;
+            this.btn_play.TabStop = false;
+            this.btn_play.Click += new System.EventHandler(this.btn_play_Click);
             // 
-            // pictureBox4
+            // btn_stop
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = global::FilterMax.Properties.Resources.ic_next1;
-            this.pictureBox4.Location = new System.Drawing.Point(891, 525);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(25, 23);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
+            this.btn_stop.BackColor = System.Drawing.Color.Transparent;
+            this.btn_stop.Image = global::FilterMax.Properties.Resources.ic_next1;
+            this.btn_stop.Location = new System.Drawing.Point(891, 525);
+            this.btn_stop.Name = "btn_stop";
+            this.btn_stop.Size = new System.Drawing.Size(25, 23);
+            this.btn_stop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_stop.TabIndex = 3;
+            this.btn_stop.TabStop = false;
+            this.btn_stop.Click += new System.EventHandler(this.btn_stop_Click);
             // 
-            // pictureBox3
+            // btn_pause
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = global::FilterMax.Properties.Resources.ic_next2;
-            this.pictureBox3.Location = new System.Drawing.Point(793, 525);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(25, 23);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
+            this.btn_pause.BackColor = System.Drawing.Color.Transparent;
+            this.btn_pause.Image = global::FilterMax.Properties.Resources.ic_next2;
+            this.btn_pause.Location = new System.Drawing.Point(793, 525);
+            this.btn_pause.Name = "btn_pause";
+            this.btn_pause.Size = new System.Drawing.Size(25, 23);
+            this.btn_pause.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_pause.TabIndex = 3;
+            this.btn_pause.TabStop = false;
+            this.btn_pause.Click += new System.EventHandler(this.btn_pause_Click);
             // 
             // btn_reset
             // 
@@ -158,6 +163,7 @@
             this.btn_load.TabIndex = 6;
             this.btn_load.Text = "Load video";
             this.btn_load.UseVisualStyleBackColor = false;
+            this.btn_load.Click += new System.EventHandler(this.btn_load_Click);
             // 
             // label1
             // 
@@ -348,20 +354,20 @@
             this.Controls.Add(this.btn_reset);
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.btn_load);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.btn_pause);
+            this.Controls.Add(this.btn_stop);
+            this.Controls.Add(this.btn_play);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pb_video);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "form_videos";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_video)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_play)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_stop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_pause)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,12 +375,12 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pb_video;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox btn_play;
+        private System.Windows.Forms.PictureBox btn_stop;
+        private System.Windows.Forms.PictureBox btn_pause;
         private System.Windows.Forms.Button btn_reset;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_load;
