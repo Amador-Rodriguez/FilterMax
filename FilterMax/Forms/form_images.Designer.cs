@@ -44,10 +44,10 @@
             this.cb_sobel = new System.Windows.Forms.ComboBox();
             this.btn_noiseHD = new System.Windows.Forms.Button();
             this.btn_noise = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel_h_red = new System.Windows.Forms.Panel();
+            this.btn_histograma = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_imagebox)).BeginInit();
             this.panel_filters.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pb_imagebox
@@ -59,6 +59,7 @@
             this.pb_imagebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_imagebox.TabIndex = 0;
             this.pb_imagebox.TabStop = false;
+            this.pb_imagebox.Visible = false;
             // 
             // btn_load
             // 
@@ -131,9 +132,7 @@
             // 
             this.backgroundWorker1.WorkerReportsProgress = true;
             this.backgroundWorker1.WorkerSupportsCancellation = true;
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
-            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
             // btn_grayScale
             // 
@@ -266,15 +265,28 @@
             this.btn_noise.UseVisualStyleBackColor = false;
             this.btn_noise.Click += new System.EventHandler(this.btn_noise_Click);
             // 
-            // pictureBox1
+            // panel_h_red
             // 
-            this.pictureBox1.Image = global::FilterMax.Properties.Resources.histograma;
-            this.pictureBox1.Location = new System.Drawing.Point(34, 319);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(265, 375);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.panel_h_red.Location = new System.Drawing.Point(26, 308);
+            this.panel_h_red.Name = "panel_h_red";
+            this.panel_h_red.Size = new System.Drawing.Size(280, 280);
+            this.panel_h_red.TabIndex = 4;
+            // 
+            // btn_histograma
+            // 
+            this.btn_histograma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(142)))));
+            this.btn_histograma.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_histograma.FlatAppearance.BorderSize = 0;
+            this.btn_histograma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_histograma.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btn_histograma.ForeColor = System.Drawing.Color.White;
+            this.btn_histograma.Location = new System.Drawing.Point(26, 594);
+            this.btn_histograma.Name = "btn_histograma";
+            this.btn_histograma.Size = new System.Drawing.Size(280, 28);
+            this.btn_histograma.TabIndex = 1;
+            this.btn_histograma.Text = "Histogram";
+            this.btn_histograma.UseVisualStyleBackColor = false;
+            this.btn_histograma.Click += new System.EventHandler(this.btn_histograma_Click);
             // 
             // form_images
             // 
@@ -282,11 +294,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FilterMax.Properties.Resources.layout6;
             this.ClientSize = new System.Drawing.Size(1350, 729);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel_h_red);
             this.Controls.Add(this.panel_filters);
             this.Controls.Add(this.pbar_process);
             this.Controls.Add(this.btn_reset);
             this.Controls.Add(this.btn_save);
+            this.Controls.Add(this.btn_histograma);
             this.Controls.Add(this.btn_load);
             this.Controls.Add(this.pb_imagebox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -296,7 +309,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_imagebox)).EndInit();
             this.panel_filters.ResumeLayout(false);
             this.panel_filters.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -319,6 +331,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_noiseHD;
         private System.Windows.Forms.Button btn_noise;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel_h_red;
+        private System.Windows.Forms.Button btn_histograma;
     }
 }

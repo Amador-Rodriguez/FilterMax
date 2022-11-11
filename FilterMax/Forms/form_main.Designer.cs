@@ -137,7 +137,6 @@
             this.Name = "form_main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "form_main";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.form_main_FormClosed);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

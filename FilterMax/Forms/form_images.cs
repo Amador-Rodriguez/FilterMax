@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
@@ -17,28 +18,34 @@ namespace FilterMax.Forms
 
         private Bitmap original;
         private Bitmap result;
-        private int[] histogram = new int[256];
-        private int[,] conv3x3 = new int[3,3];
+        private int[] histogram_r = new int[256];
+        private int[] histogram_g = new int[256];
+        private int[] histogram_b = new int[256];
+        private int[,] conv3x3 = new int[3, 3];
         private int factor;
         private int offset;
         private int width, height;
 
-        private int[] histograma = new int[256];
-
-
+        public void loadform(object Form)
+        {
+            if (this.panel_h_red.Controls.Count > 0)
+            {
+                this.panel_h_red.Controls.RemoveAt(0);
+            }
+            Form f = Form as Form;
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            this.panel_h_red.Controls.Add(f);
+            this.panel_h_red.Tag = f;
+            f.Show();
+        }
         public form_images()
         {
             InitializeComponent();
             result = new Bitmap(800, 600);
             width = 800;
-            height = 600; 
-            
-        }
+            height = 600;
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-
-            
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -56,7 +63,7 @@ namespace FilterMax.Forms
             resetImage();
         }
 
-        private  void btn_negative_Click(object sender, EventArgs e)
+        private void btn_negative_Click(object sender, EventArgs e)
         {
             //if (!backgroundWorker1.IsBusy)
             //{
@@ -104,9 +111,10 @@ namespace FilterMax.Forms
             noiseHDfilter();
         }
 
-        private void btn_load_Click(object sender, EventArgs e)
+        private  void btn_load_Click(object sender, EventArgs e)
         {
             loadImage();
+            pb_imagebox.Visible = true;
         }
 
         private void ConvGray(int[,] pMatrix, Bitmap pImage, int pInferior, int pSuperior)
@@ -167,9 +175,9 @@ namespace FilterMax.Forms
                     rColor = Color.FromArgb(255 - oColor.R, 255 - oColor.G, 255 - oColor.B);
                     result.SetPixel(x, y, rColor);
                     pixelsCount += 1;
-                    
+
                 }
-                
+
                 porcentaje = ((pixelsCount * 100) / size);
                 backgroundWorker1.ReportProgress((int)porcentaje);
             }
@@ -206,7 +214,7 @@ namespace FilterMax.Forms
                     result.SetPixel((int)x, (int)y, rColor);
 
                     pixelsCount += 1;
-                    
+
                 }
                 porcentaje = ((pixelsCount * 100) / size);
                 backgroundWorker1.ReportProgress((int)porcentaje);
@@ -269,7 +277,7 @@ namespace FilterMax.Forms
                         }
                     }
                     pixelsCount += 256;
-                    
+
                 }
                 porcentaje = ((pixelsCount * 100) / size);
                 backgroundWorker1.ReportProgress((int)porcentaje);
@@ -284,7 +292,7 @@ namespace FilterMax.Forms
         private void filterSobel(string scale)
         {
             int[,] sobel;
-            
+
             switch (scale)
             {
                 case "Sobel 0":
@@ -334,7 +342,7 @@ namespace FilterMax.Forms
                                         {   -1,   0,   1},
                                         {   0,   1 ,   2}};
                         break;
-                        
+
                     }
                 case "Sobel 6":
                     {
@@ -473,7 +481,7 @@ namespace FilterMax.Forms
             pb_imagebox.Image = result;
         }
 
-        private void loadImage()
+        private  void loadImage()
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -484,8 +492,13 @@ namespace FilterMax.Forms
 
                 pb_imagebox.Image = result;
                 panel_filters.Enabled = true;
+                pb_imagebox.Enabled = true;
+
             }
+
         }
+
+       
 
         private void saveImage()
         {
@@ -500,7 +513,7 @@ namespace FilterMax.Forms
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            
+
         }
 
         private void form_images_FormClosing(object sender, FormClosingEventArgs e)
@@ -508,9 +521,9 @@ namespace FilterMax.Forms
 
         }
 
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        private  void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-
+           
         }
 
         private void resetImage()
@@ -521,5 +534,51 @@ namespace FilterMax.Forms
             }
         }
 
+        private void btn_histograma_Click(object sender, EventArgs e)
+        {
+            histogram_draw();
+        }
+
+        private void histogram_draw()
+        {
+            //MessageBox.Show("Histograma");
+            int x = 0;
+            int y = 0;
+
+            Color rColor = new Color();
+
+            for (x = 0; x < original.Width; x++)
+            {
+                for (y = 0; y < original.Height; y++)
+                {
+                    rColor = result.GetPixel(x, y);
+                    histogram_r[rColor.R]++;
+                }
+            }
+
+            for (x = 0; x < original.Width; x++)
+            {
+                for (y = 0; y < original.Height; y++)
+                {
+                    rColor = result.GetPixel(x, y);
+                    histogram_g[rColor.G]++;
+                }
+
+            }
+
+            for (x = 0; x < original.Width; x++)
+            {
+                for (y = 0; y < original.Height; y++)
+                {
+                    rColor = result.GetPixel(x, y);
+                    histogram_b[rColor.B]++;
+                }
+
+            }
+
+            f_histogramRed h_red = new f_histogramRed(histogram_r, histogram_g, histogram_b);
+            loadform(h_red);
+
+        }
     }
 }

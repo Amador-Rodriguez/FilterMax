@@ -112,3 +112,4 @@ C:\Users\mayin\Documents\GitHub\FilterMax\FilterMax\obj\Debug\FilterMax.csproj.C
 C:\Users\mayin\Documents\GitHub\FilterMax\FilterMax\obj\Debug\FilterMax.csproj.CopyComplete
 C:\Users\mayin\Documents\GitHub\FilterMax\FilterMax\obj\Debug\FilterMax.exe
 C:\Users\mayin\Documents\GitHub\FilterMax\FilterMax\obj\Debug\FilterMax.pdb
+C:\Users\mayin\Documents\GitHub\FilterMax\FilterMax\obj\Debug\FilterMax.Forms.f_histogramRed.resources
