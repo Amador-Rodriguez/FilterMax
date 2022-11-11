@@ -44,10 +44,6 @@
             this.cb_sobel = new System.Windows.Forms.ComboBox();
             this.btn_noiseHD = new System.Windows.Forms.Button();
             this.btn_noise = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb_imagebox)).BeginInit();
             this.panel_filters.SuspendLayout();
@@ -115,7 +111,8 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "Imagenes PNG|*.png|Imagenes BMP|*.bmp";
+            this.openFileDialog1.Filter = "Imagenes PNG|*.png|Imagenes BMP|*.bmp| Imagenes JPG|*.jpg";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // saveFileDialog1
             // 
@@ -146,7 +143,7 @@
             this.btn_grayScale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_grayScale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btn_grayScale.ForeColor = System.Drawing.Color.White;
-            this.btn_grayScale.Location = new System.Drawing.Point(140, 23);
+            this.btn_grayScale.Location = new System.Drawing.Point(396, 57);
             this.btn_grayScale.Name = "btn_grayScale";
             this.btn_grayScale.Size = new System.Drawing.Size(114, 28);
             this.btn_grayScale.TabIndex = 1;
@@ -162,7 +159,7 @@
             this.btn_negative.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_negative.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btn_negative.ForeColor = System.Drawing.Color.White;
-            this.btn_negative.Location = new System.Drawing.Point(20, 23);
+            this.btn_negative.Location = new System.Drawing.Point(38, 58);
             this.btn_negative.Name = "btn_negative";
             this.btn_negative.Size = new System.Drawing.Size(114, 28);
             this.btn_negative.TabIndex = 1;
@@ -178,7 +175,7 @@
             this.btn_pixelate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_pixelate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btn_pixelate.ForeColor = System.Drawing.Color.White;
-            this.btn_pixelate.Location = new System.Drawing.Point(260, 23);
+            this.btn_pixelate.Location = new System.Drawing.Point(636, 57);
             this.btn_pixelate.Name = "btn_pixelate";
             this.btn_pixelate.Size = new System.Drawing.Size(114, 28);
             this.btn_pixelate.TabIndex = 1;
@@ -191,13 +188,9 @@
             this.panel_filters.BackColor = System.Drawing.Color.Transparent;
             this.panel_filters.Controls.Add(this.label1);
             this.panel_filters.Controls.Add(this.cb_sobel);
-            this.panel_filters.Controls.Add(this.button4);
             this.panel_filters.Controls.Add(this.btn_pixelate);
-            this.panel_filters.Controls.Add(this.button3);
-            this.panel_filters.Controls.Add(this.button2);
             this.panel_filters.Controls.Add(this.btn_noiseHD);
             this.panel_filters.Controls.Add(this.btn_noise);
-            this.panel_filters.Controls.Add(this.button1);
             this.panel_filters.Controls.Add(this.btn_negative);
             this.panel_filters.Controls.Add(this.btn_grayScale);
             this.panel_filters.Enabled = false;
@@ -212,7 +205,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(142)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(22, 64);
+            this.label1.Location = new System.Drawing.Point(158, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 17);
             this.label1.TabIndex = 3;
@@ -235,7 +228,7 @@
             "Sobel 5",
             "Sobel 6",
             "Sobel 7"});
-            this.cb_sobel.Location = new System.Drawing.Point(20, 61);
+            this.cb_sobel.Location = new System.Drawing.Point(156, 61);
             this.cb_sobel.Name = "cb_sobel";
             this.cb_sobel.Size = new System.Drawing.Size(114, 24);
             this.cb_sobel.TabIndex = 2;
@@ -249,7 +242,7 @@
             this.btn_noiseHD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_noiseHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btn_noiseHD.ForeColor = System.Drawing.Color.White;
-            this.btn_noiseHD.Location = new System.Drawing.Point(260, 60);
+            this.btn_noiseHD.Location = new System.Drawing.Point(516, 57);
             this.btn_noiseHD.Name = "btn_noiseHD";
             this.btn_noiseHD.Size = new System.Drawing.Size(114, 28);
             this.btn_noiseHD.TabIndex = 1;
@@ -265,77 +258,13 @@
             this.btn_noise.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_noise.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btn_noise.ForeColor = System.Drawing.Color.White;
-            this.btn_noise.Location = new System.Drawing.Point(140, 60);
+            this.btn_noise.Location = new System.Drawing.Point(276, 57);
             this.btn_noise.Name = "btn_noise";
             this.btn_noise.Size = new System.Drawing.Size(114, 28);
             this.btn_noise.TabIndex = 1;
             this.btn_noise.Text = "Random noise";
             this.btn_noise.UseVisualStyleBackColor = false;
             this.btn_noise.Click += new System.EventHandler(this.btn_noise_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(142)))));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(378, 23);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 28);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Grayscale";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.btn_grayScale_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(142)))));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(378, 60);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 28);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Random noise";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.btn_noise_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(142)))));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(498, 60);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(114, 28);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Noise HD";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.btn_noiseHD_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(142)))));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(498, 23);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(114, 28);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Pixelate";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.btn_pixelate_Click);
             // 
             // pictureBox1
             // 
@@ -363,6 +292,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "form_images";
             this.Text = "form_images";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_images_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pb_imagebox)).EndInit();
             this.panel_filters.ResumeLayout(false);
             this.panel_filters.PerformLayout();
@@ -389,10 +319,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_noiseHD;
         private System.Windows.Forms.Button btn_noise;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

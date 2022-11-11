@@ -12,6 +12,9 @@ namespace FilterMax.Forms
 {
     public partial class form_main : Form
     {
+
+        private Form currentForm;
+
         public form_main()
         {
             InitializeComponent();
@@ -28,16 +31,27 @@ namespace FilterMax.Forms
             f.Dock = DockStyle.Fill;
             this.panel_main.Controls.Add(f);
             this.panel_main.Tag = f;
+            currentForm = f;
             f.Show();
         }
 
         private void btn_images_Click(object sender, EventArgs e)
         {
+            if (currentForm != null)
+            {
+                currentForm.Close();
+            }
             loadform(new form_images());
+           
+
         }
 
         private void btn_camera_Click(object sender, EventArgs e)
         {
+            if (currentForm != null)
+            {
+                currentForm.Close();
+            }
             loadform(new form_camera());
         }
 
@@ -48,7 +62,16 @@ namespace FilterMax.Forms
 
         private void btn_video_Click(object sender, EventArgs e)
         {
+            if (currentForm != null)
+            {
+                currentForm.Close();
+            }
             loadform(new form_videos());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

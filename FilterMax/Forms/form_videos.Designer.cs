@@ -35,17 +35,9 @@
             this.btn_stop = new System.Windows.Forms.PictureBox();
             this.btn_pause = new System.Windows.Forms.PictureBox();
             this.btn_reset = new System.Windows.Forms.Button();
-            this.btn_save = new System.Windows.Forms.Button();
             this.btn_load = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cb_sobel = new System.Windows.Forms.ComboBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.btn_pixelate = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btn_noiseHD = new System.Windows.Forms.Button();
             this.btn_noise = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.btn_negative = new System.Windows.Forms.Button();
             this.btn_grayScale = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_video)).BeginInit();
@@ -98,10 +90,10 @@
             // btn_stop
             // 
             this.btn_stop.BackColor = System.Drawing.Color.Transparent;
-            this.btn_stop.Image = global::FilterMax.Properties.Resources.ic_next1;
-            this.btn_stop.Location = new System.Drawing.Point(891, 525);
+            this.btn_stop.Image = global::FilterMax.Properties.Resources.btn_stop;
+            this.btn_stop.Location = new System.Drawing.Point(881, 519);
             this.btn_stop.Name = "btn_stop";
-            this.btn_stop.Size = new System.Drawing.Size(25, 23);
+            this.btn_stop.Size = new System.Drawing.Size(39, 35);
             this.btn_stop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_stop.TabIndex = 3;
             this.btn_stop.TabStop = false;
@@ -110,10 +102,10 @@
             // btn_pause
             // 
             this.btn_pause.BackColor = System.Drawing.Color.Transparent;
-            this.btn_pause.Image = global::FilterMax.Properties.Resources.ic_next2;
-            this.btn_pause.Location = new System.Drawing.Point(793, 525);
+            this.btn_pause.Image = global::FilterMax.Properties.Resources.btn_pause;
+            this.btn_pause.Location = new System.Drawing.Point(791, 519);
             this.btn_pause.Name = "btn_pause";
-            this.btn_pause.Size = new System.Drawing.Size(25, 23);
+            this.btn_pause.Size = new System.Drawing.Size(39, 35);
             this.btn_pause.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_pause.TabIndex = 3;
             this.btn_pause.TabStop = false;
@@ -127,27 +119,13 @@
             this.btn_reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_reset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btn_reset.ForeColor = System.Drawing.Color.White;
-            this.btn_reset.Location = new System.Drawing.Point(1174, 648);
+            this.btn_reset.Location = new System.Drawing.Point(1174, 614);
             this.btn_reset.Name = "btn_reset";
             this.btn_reset.Size = new System.Drawing.Size(114, 28);
             this.btn_reset.TabIndex = 4;
             this.btn_reset.Text = "Reset";
             this.btn_reset.UseVisualStyleBackColor = false;
-            // 
-            // btn_save
-            // 
-            this.btn_save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(142)))));
-            this.btn_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btn_save.FlatAppearance.BorderSize = 0;
-            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btn_save.ForeColor = System.Drawing.Color.White;
-            this.btn_save.Location = new System.Drawing.Point(1174, 614);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(114, 28);
-            this.btn_save.TabIndex = 5;
-            this.btn_save.Text = "Save";
-            this.btn_save.UseVisualStyleBackColor = false;
+            this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
             // 
             // btn_load
             // 
@@ -165,55 +143,6 @@
             this.btn_load.UseVisualStyleBackColor = false;
             this.btn_load.Click += new System.EventHandler(this.btn_load_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(142)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(370, 631);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 17);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Sobel         ";
-            // 
-            // cb_sobel
-            // 
-            this.cb_sobel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(142)))));
-            this.cb_sobel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_sobel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_sobel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.cb_sobel.ForeColor = System.Drawing.Color.White;
-            this.cb_sobel.FormattingEnabled = true;
-            this.cb_sobel.Items.AddRange(new object[] {
-            "Sobel 0",
-            "Sobel 1",
-            "Sobel 2",
-            "Sobel 3",
-            "Sobel 4",
-            "Sobel 5",
-            "Sobel 6",
-            "Sobel 7"});
-            this.cb_sobel.Location = new System.Drawing.Point(368, 628);
-            this.cb_sobel.Name = "cb_sobel";
-            this.cb_sobel.Size = new System.Drawing.Size(114, 24);
-            this.cb_sobel.TabIndex = 16;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(142)))));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(846, 590);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(114, 28);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Pixelate";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // btn_pixelate
             // 
             this.btn_pixelate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(142)))));
@@ -222,57 +151,13 @@
             this.btn_pixelate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_pixelate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btn_pixelate.ForeColor = System.Drawing.Color.White;
-            this.btn_pixelate.Location = new System.Drawing.Point(608, 590);
+            this.btn_pixelate.Location = new System.Drawing.Point(606, 614);
             this.btn_pixelate.Name = "btn_pixelate";
             this.btn_pixelate.Size = new System.Drawing.Size(114, 28);
             this.btn_pixelate.TabIndex = 8;
             this.btn_pixelate.Text = "Pixelate";
             this.btn_pixelate.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(142)))));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(846, 627);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(114, 28);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Noise HD";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(142)))));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(726, 627);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 28);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Random noise";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // btn_noiseHD
-            // 
-            this.btn_noiseHD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(142)))));
-            this.btn_noiseHD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btn_noiseHD.FlatAppearance.BorderSize = 0;
-            this.btn_noiseHD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_noiseHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btn_noiseHD.ForeColor = System.Drawing.Color.White;
-            this.btn_noiseHD.Location = new System.Drawing.Point(608, 627);
-            this.btn_noiseHD.Name = "btn_noiseHD";
-            this.btn_noiseHD.Size = new System.Drawing.Size(114, 28);
-            this.btn_noiseHD.TabIndex = 11;
-            this.btn_noiseHD.Text = "Noise HD";
-            this.btn_noiseHD.UseVisualStyleBackColor = false;
+            this.btn_pixelate.Click += new System.EventHandler(this.btn_pixelate_Click);
             // 
             // btn_noise
             // 
@@ -282,27 +167,13 @@
             this.btn_noise.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_noise.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btn_noise.ForeColor = System.Drawing.Color.White;
-            this.btn_noise.Location = new System.Drawing.Point(488, 627);
+            this.btn_noise.Location = new System.Drawing.Point(726, 614);
             this.btn_noise.Name = "btn_noise";
             this.btn_noise.Size = new System.Drawing.Size(114, 28);
             this.btn_noise.TabIndex = 12;
             this.btn_noise.Text = "Random noise";
             this.btn_noise.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(142)))));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(726, 590);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 28);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Grayscale";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_noise.Click += new System.EventHandler(this.btn_noise_Click);
             // 
             // btn_negative
             // 
@@ -312,12 +183,13 @@
             this.btn_negative.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_negative.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btn_negative.ForeColor = System.Drawing.Color.White;
-            this.btn_negative.Location = new System.Drawing.Point(368, 590);
+            this.btn_negative.Location = new System.Drawing.Point(366, 614);
             this.btn_negative.Name = "btn_negative";
             this.btn_negative.Size = new System.Drawing.Size(114, 28);
             this.btn_negative.TabIndex = 14;
             this.btn_negative.Text = "Negative";
             this.btn_negative.UseVisualStyleBackColor = false;
+            this.btn_negative.Click += new System.EventHandler(this.btn_negative_Click);
             // 
             // btn_grayScale
             // 
@@ -327,12 +199,13 @@
             this.btn_grayScale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_grayScale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btn_grayScale.ForeColor = System.Drawing.Color.White;
-            this.btn_grayScale.Location = new System.Drawing.Point(488, 590);
+            this.btn_grayScale.Location = new System.Drawing.Point(486, 614);
             this.btn_grayScale.Name = "btn_grayScale";
             this.btn_grayScale.Size = new System.Drawing.Size(114, 28);
             this.btn_grayScale.TabIndex = 15;
             this.btn_grayScale.Text = "Grayscale";
             this.btn_grayScale.UseVisualStyleBackColor = false;
+            this.btn_grayScale.Click += new System.EventHandler(this.btn_grayScale_Click);
             // 
             // form_videos
             // 
@@ -340,19 +213,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FilterMax.Properties.Resources.layout6;
             this.ClientSize = new System.Drawing.Size(1350, 715);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cb_sobel);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.btn_pixelate);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.btn_noiseHD);
             this.Controls.Add(this.btn_noise);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_negative);
             this.Controls.Add(this.btn_grayScale);
             this.Controls.Add(this.btn_reset);
-            this.Controls.Add(this.btn_save);
             this.Controls.Add(this.btn_load);
             this.Controls.Add(this.btn_pause);
             this.Controls.Add(this.btn_stop);
@@ -363,6 +228,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "form_videos";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_videos_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pb_video)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_play)).EndInit();
@@ -382,17 +248,9 @@
         private System.Windows.Forms.PictureBox btn_stop;
         private System.Windows.Forms.PictureBox btn_pause;
         private System.Windows.Forms.Button btn_reset;
-        private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_load;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cb_sobel;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btn_pixelate;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btn_noiseHD;
         private System.Windows.Forms.Button btn_noise;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_negative;
         private System.Windows.Forms.Button btn_grayScale;
     }

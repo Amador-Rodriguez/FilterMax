@@ -21,8 +21,8 @@ namespace FilterMax.Forms
         private enum CameraMode
         {
             facesDetection = 1,
-            movementDetection = 1,
-            objectsDetection = 1,
+            movementDetection = 2,
+            objectsDetection = 3,
         }
         private bool camera_available = false;
         private FilterInfoCollection devices;
@@ -143,7 +143,6 @@ namespace FilterMax.Forms
         public void form_camera_FormClosed(object sender, FormClosedEventArgs e)
         {
             closeCamera();
-            Application.Exit();
         }
 
         private void label1_Click(object sender, EventArgs e)

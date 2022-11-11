@@ -199,6 +199,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="License-LGPL.txt" />
+    <None Include="Resources\btn_stop.png" />
+    <None Include="Resources\btn_pause.png" />
     <None Include="Resources\ic_next2.png" />
     <None Include="Resources\ic_play1.png" />
     <None Include="Resources\ic_next1.png" />

@@ -503,7 +503,15 @@ namespace FilterMax.Forms
             
         }
 
-        
+        private void form_images_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
 
         private void resetImage()
         {
