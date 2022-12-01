@@ -112,7 +112,7 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "Imagenes PNG|*.png|Imagenes BMP|*.bmp| Imagenes JPG|*.jpg";
+            this.openFileDialog1.Filter = "Imagenes PNG|*.png|Imagenes BMP|*.bmp| Imagenes JPG|*.jpg| Imagenes JPG|*.jpeg";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // saveFileDialog1
