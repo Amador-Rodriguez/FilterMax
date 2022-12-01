@@ -78,6 +78,7 @@
             // btn_play
             // 
             this.btn_play.BackColor = System.Drawing.Color.Transparent;
+            this.btn_play.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_play.Image = global::FilterMax.Properties.Resources.ic_play1;
             this.btn_play.Location = new System.Drawing.Point(836, 519);
             this.btn_play.Name = "btn_play";
@@ -90,6 +91,7 @@
             // btn_stop
             // 
             this.btn_stop.BackColor = System.Drawing.Color.Transparent;
+            this.btn_stop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_stop.Image = global::FilterMax.Properties.Resources.btn_stop;
             this.btn_stop.Location = new System.Drawing.Point(881, 519);
             this.btn_stop.Name = "btn_stop";
@@ -102,6 +104,7 @@
             // btn_pause
             // 
             this.btn_pause.BackColor = System.Drawing.Color.Transparent;
+            this.btn_pause.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_pause.Image = global::FilterMax.Properties.Resources.btn_pause;
             this.btn_pause.Location = new System.Drawing.Point(791, 519);
             this.btn_pause.Name = "btn_pause";
